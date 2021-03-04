@@ -117,7 +117,7 @@ class Blockchain(object):
                 balance -= float(pending_transaction['amount'][:-3])
         return balance
 
-blockchain = Blockchain()
+'''blockchain = Blockchain()
 t1 = blockchain.new_transaction('A', 'B', '3 PP')
 t2 = blockchain.new_transaction('B', 'C', '1 PP')
 t3 = blockchain.new_transaction('A', 'C', '7 PP')
@@ -129,5 +129,5 @@ print(block)
 block = blockchain.add_block()
 block = json.dumps(block, indent=2)
 print(block)
-print(blockchain.get_balance('B'))
+print(blockchain.get_balance('B'))'''
 

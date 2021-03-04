@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction</title>
+</head>
+<body>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <form action="" method="post">
+        <p>
+            <label for="From">From</label>
+            <input type="text" name="From">
+        </p>
+        <p>
+            <label for="To">To</label>
+            <input type="text" name="To">
+        </p>
+        <p>
+            <label for="Amount">Amount</label>
+            <input type="text" name="Amount">
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
+
+</body>
+</html>
