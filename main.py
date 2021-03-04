@@ -103,6 +103,7 @@ class Blockchain(object):
         return hex_hash
 
     #Balance is received - sent but pending 'sent' transactions hit the balance too
+    #Last 3 elements of the amount parameter in a transaction are ' PP'
     def get_balance(self, user):
         balance = 0
         for block in self.chain:
