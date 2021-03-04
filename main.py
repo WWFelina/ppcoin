@@ -102,6 +102,20 @@ class Blockchain(object):
         hex_hash = temp_hash.hexdigest()
         return hex_hash
 
+    #Balance is received - sent but pending 'sent' transactions hit the balance too
+    def get_balance(self, user):
+        balance = 0
+        for block in self.chain:
+            for transaction in block['transactions']:
+                if transaction['sender'] == user:
+                    balance -= float(transaction['amount'][:-3])
+                elif transaction['receiver'] == user:
+                    balance += float(transaction['amount'][:-3])
+        for pending_transaction in self.pending_transactions:
+            if pending_transaction['sender'] == user:
+                balance -= float(pending_transaction['amount'][:-3])
+        return balance
+
 blockchain = Blockchain()
 t1 = blockchain.new_transaction('A', 'B', '3 PP')
 t2 = blockchain.new_transaction('B', 'C', '1 PP')
@@ -114,4 +128,5 @@ print(block)
 block = blockchain.add_block()
 block = json.dumps(block, indent=2)
 print(block)
+print(blockchain.get_balance('B'))
 
